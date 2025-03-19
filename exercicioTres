@@ -1,0 +1,28 @@
+public class SomaSimples {
+    public static void main(String[] args) {
+        int tamanho = 1000000; // Reduzindo o tamanho para facilitar o teste
+        int[] numeros = new int[tamanho];
+        Random random = new Random();
+
+        // Preenchendo o array com números aleatórios
+        for (int i = 0; i < tamanho; i++) {
+            numeros[i] = random.nextInt(100);
+        }
+
+        // Soma sequencial
+        long inicio = System.nanoTime();
+        long somaTotal = somarNumeros(numeros);
+        long tempoTotal = System.nanoTime() - inicio;
+
+        System.out.println("Soma total: " + somaTotal);
+        System.out.println("Tempo decorrido: " + (tempoTotal / 1e9) + " segundos");
+    }
+
+    public static long somarNumeros(int[] numeros) {
+        long soma = 0;
+        for (int num : numeros) {
+            soma += num;
+        }
+        return soma;
+    }
+}
